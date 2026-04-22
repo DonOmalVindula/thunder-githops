@@ -13,7 +13,7 @@
 
 ## Thunder access
 
-Add hostname mapping for following domains with 127.0.0.1 
+Add a hostname mapping for following domains with 127.0.0.1 
   - development-thunder-thunder-idp.openchoreoapis.localhost
   - staging-thunder-thunder-idp.openchoreoapis.localhost
   - Production-thunder-thunder-idp.openchoreoapis.localhost
