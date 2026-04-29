@@ -357,6 +357,308 @@ spec:
 
             - id: end
               type: END
+      - key: govid_theme.yaml
+        mountPath: /opt/thunder/repository/resources/themes
+        value: |
+          id: "a1b2c3d4-e5f6-7890-abcd-govid0theme1"
+          handle: "gov-id-theme"
+          displayName: "Gov.ID"
+          description: "Gov.ID theme with Sri Lankan flag-inspired colors."
+          theme:
+            defaultColorScheme: "light"
+            direction: "ltr"
+            shape:
+              borderRadius: 12
+            typography:
+              fontFamily: "Sora, -apple-system, BlinkMacSystemFont, sans-serif"
+              fontWeightRegular: 400
+              fontSize: 14
+              h1:
+                fontSize: "1.85rem"
+                fontWeight: 700
+                fontFamily: "Space Grotesk, Sora, sans-serif"
+                lineHeight: 1
+                letterSpacing: "-0.03em"
+              h2:
+                fontSize: "1.5rem"
+                fontWeight: 700
+                fontFamily: "Space Grotesk, Sora, sans-serif"
+                lineHeight: 1.2
+                letterSpacing: "-0.02em"
+              h3:
+                fontSize: "1.05rem"
+                fontWeight: 600
+                fontFamily: "Sora, sans-serif"
+                lineHeight: 1.167
+              subtitle1:
+                fontSize: "0.75rem"
+                fontFamily: "Sora, sans-serif"
+                fontWeight: 600
+                lineHeight: 1.75
+                letterSpacing: "0.18em"
+                textTransform: "uppercase"
+              subtitle2:
+                fontSize: "0.65rem"
+                fontWeight: 600
+                fontFamily: "Sora, sans-serif"
+                lineHeight: 1.57
+                letterSpacing: "0.18em"
+                textTransform: "uppercase"
+              body1:
+                fontSize: "0.88rem"
+                fontFamily: "Sora, sans-serif"
+                fontWeight: 400
+                lineHeight: 1.5
+              body2:
+                fontSize: "0.82rem"
+                fontWeight: 400
+                fontFamily: "Sora, sans-serif"
+                lineHeight: 1.43
+              button:
+                fontSize: "0.88rem"
+                fontWeight: 600
+                fontFamily: "Sora, sans-serif"
+                lineHeight: 1.75
+                textTransform: "none"
+            border:
+              width: "1.5px"
+              style: "solid"
+            colorSchemes:
+              light:
+                palette:
+                  mode: "light"
+                  primary:
+                    main: "#8B1A2B"
+                    contrastText: "#ffffff"
+                    light: "#A42035"
+                    dark: "#6E1524"
+                  secondary:
+                    main: "#78716C"
+                    contrastText: "#ffffff"
+                    light: "#A8A29E"
+                    dark: "#44403C"
+                  background:
+                    default: "#FAFAF8"
+                    paper: "#ffffff"
+                  text:
+                    primary: "#1C1917"
+                    secondary: "#78716C"
+                  divider: "#E7E5E4"
+                  action:
+                    hover: "rgba(139, 26, 43, 0.04)"
+                    selected: "rgba(139, 26, 43, 0.08)"
+                    focus: "rgba(139, 26, 43, 0.12)"
+      - key: govid_flow.yaml
+        mountPath: /opt/thunder/repository/resources/flows
+        value: |
+          id: "b2c3d4e5-f6a7-8901-bcde-govid00flow1"
+          name: "Gov.ID Authentication Flow"
+          handle: "gov-id-authentication-flow"
+          flowType: "AUTHENTICATION"
+          nodes:
+            - id: start
+              type: START
+              layout:
+                size: { width: 101, height: 34 }
+                position: { x: 62, y: 87 }
+              onSuccess: view_govid
+            - id: view_govid
+              type: PROMPT
+              layout:
+                size: { width: 350, height: 1293 }
+                position: { x: 310, y: -206 }
+              meta:
+                components:
+                  - resourceType: ELEMENT
+                    category: BLOCK
+                    type: STACK
+                    items: 1
+                    direction: row
+                    gap: 2
+                    align: center
+                    justify: center
+                    components:
+                      - resourceType: ELEMENT
+                        category: DISPLAY
+                        type: ICON
+                        name: Fingerprint
+                        size: "80"
+                        color: currentColor
+                        id: display_icon
+                    id: block_icon
+                  - resourceType: ELEMENT
+                    category: DISPLAY
+                    type: RICH_TEXT
+                    label: '<h1 class="rich-text-heading-h1 rich-text-align-center"><b><strong class="rich-text-bold rich-text-pre-wrap">Gov·ID</strong></b></h1>'
+                    id: display_brand
+                  - resourceType: ELEMENT
+                    category: DISPLAY
+                    type: DIVIDER
+                    id: display_div1
+                    label: ""
+                    variant: HORIZONTAL
+                  - resourceType: ELEMENT
+                    category: DISPLAY
+                    type: RICH_TEXT
+                    label: '<h3 class="rich-text-heading-h3 rich-text-align-left"><span class="rich-text-pre-wrap">Sign in</span></h3>'
+                    id: display_signin
+                  - resourceType: ELEMENT
+                    category: DISPLAY
+                    type: RICH_TEXT
+                    label: '<p class="rich-text-paragraph" style="text-align: start;"><span class="rich-text-pre-wrap">Enter your credentials to access government services</span></p>'
+                    id: display_desc
+                  - resourceType: ELEMENT
+                    category: BLOCK
+                    type: BLOCK
+                    id: block_form
+                    components:
+                      - resourceType: ELEMENT
+                        category: FIELD
+                        type: TEXT_INPUT
+                        inputType: text
+                        hint: ""
+                        label: "NIC/Passport Number"
+                        required: true
+                        placeholder: "123456789V"
+                        id: text_input_user
+                        ref: username
+                      - resourceType: ELEMENT
+                        category: FIELD
+                        type: PASSWORD_INPUT
+                        ref: password
+                        inputType: password
+                        hint: ""
+                        label: "Password"
+                        required: true
+                        placeholder: "Enter your password"
+                        id: password_input_pw
+                      - resourceType: ELEMENT
+                        category: ACTION
+                        type: ACTION
+                        eventType: SUBMIT
+                        id: action_submit
+                        label: "Sign In"
+                        variant: PRIMARY
+                  - resourceType: ELEMENT
+                    category: DISPLAY
+                    type: RICH_TEXT
+                    label: '<p class="rich-text-paragraph rich-text-align-center"><span class="rich-text-pre-wrap">Don''t have an account?&nbsp;</span><a href="#" class="rich-text-link"><span class="rich-text-pre-wrap">Register as a new user</span></a></p>'
+                    id: display_register
+                  - resourceType: ELEMENT
+                    category: DISPLAY
+                    type: RICH_TEXT
+                    label: '<p class="rich-text-paragraph rich-text-align-center"><span class="rich-text-pre-wrap">Need help?&nbsp;</span><a href="#" class="rich-text-link"><span class="rich-text-pre-wrap">Contact support</span></a></p>'
+                    id: display_support
+              prompts:
+                - action:
+                    ref: action_submit
+                    nextNode: basic_auth
+                  inputs:
+                    - ref: text_input_user
+                      type: TEXT_INPUT
+                      identifier: username
+                      required: true
+                    - ref: password_input_pw
+                      type: PASSWORD_INPUT
+                      identifier: password
+                      required: true
+            - id: basic_auth
+              type: TASK_EXECUTION
+              layout:
+                size: { width: 217, height: 113 }
+                position: { x: 820, y: 108 }
+              executor:
+                name: BasicAuthExecutor
+                inputs:
+                  - ref: text_input_user
+                    type: TEXT_INPUT
+                    identifier: username
+                    required: true
+                  - ref: password_input_pw
+                    type: PASSWORD_INPUT
+                    identifier: password
+                    required: true
+              onSuccess: auth_assert
+            - id: auth_assert
+              type: TASK_EXECUTION
+              layout:
+                size: { width: 244, height: 113 }
+                position: { x: 1234, y: 108 }
+              executor:
+                name: AuthAssertExecutor
+              onSuccess: END
+            - id: END
+              type: END
+              layout:
+                size: { width: 85, height: 34 }
+                position: { x: 1650, y: 147 }
+      - key: govid_layout.yaml
+        mountPath: /opt/thunder/repository/resources/layouts
+        value: |
+          id: "c3d4e5f6-a7b8-9012-cdef-govid0layot1"
+          handle: "gov-id-layout"
+          displayName: "Gov.ID Layout"
+          description: "Gov.ID layout with custom CSS for diagonal stripes, frosted glass card, and Sri Lankan flag-inspired styling."
+          layout:
+            head:
+              stylesheets:
+                - id: "govid-fonts"
+                  type: "url"
+                  href: "https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+                - id: "govid-custom"
+                  type: "inline"
+                  content: ':root, html, html[data-color-scheme="light"] { --maroon: #8B1A2B; --maroon-mid: #A42035; --maroon-dark: #6E1524; --saffron: #FFBE29; --orange: #EB7400; --teal: #0E6251; --asgardeo-color-primary-main: #8B1A2B !important; --asgardeo-color-primary-contrastText: #ffffff !important; --asgardeo-color-background-body-main: #8B1A2B !important; --asgardeo-color-background-surface: rgba(255, 255, 255, 0.95) !important; --asgardeo-border-radius-small: 12px !important; --asgardeo-border-radius-medium: 12px !important; --asgardeo-border-radius-large: 28px !important; --asgardeo-shadow-medium: 0 20px 50px rgba(0,0,0,0.06), 0 6px 16px rgba(0,0,0,0.03) !important; --asgardeo-typography-fontFamily: Sora, -apple-system, BlinkMacSystemFont, sans-serif !important; --asgardeo-color-text-primary: #1C1917 !important; --asgardeo-color-text-secondary: #78716C !important; --asgardeo-color-border: #E7E5E4 !important; } html, body, input, button, select, textarea, label, a, p, span, div, h1, h2, h3, h4, h5, h6 { font-family: Sora, -apple-system, BlinkMacSystemFont, sans-serif !important; } #bg { display: none !important; } body { background: #FAFAF8 !important; min-height: 100vh !important; overflow-x: hidden !important; position: relative !important; } body::before { content: "" !important; position: fixed !important; inset: 0 !important; background: #8B1A2B !important; clip-path: polygon(0 0, 28% 0, 48% 100%, 0 100%) !important; z-index: 0 !important; pointer-events: none !important; } body::after { content: "" !important; position: fixed !important; inset: 0 !important; background: linear-gradient(to right, #EB7400 0%, #EB7400 100%) !important; clip-path: polygon(28% 0, 36% 0, 56% 100%, 48% 100%) !important; z-index: 0 !important; pointer-events: none !important; } #root::before { content: "" !important; position: fixed !important; inset: 0 !important; background: #0E6251 !important; clip-path: polygon(36% 0, 42% 0, 62% 100%, 56% 100%) !important; z-index: 0 !important; pointer-events: none !important; } #root::after { content: "" !important; position: fixed !important; top: 0 !important; right: 0 !important; width: 60% !important; height: 100% !important; background-image: radial-gradient(circle, rgba(0,0,0,0.02) 1px, transparent 1px) !important; background-size: 28px 28px !important; z-index: 0 !important; pointer-events: none !important; } #root { position: relative !important; z-index: 1 !important; display: flex !important; align-items: center !important; justify-content: center !important; min-height: 100vh !important; } .ThunderSignIn--root { position: relative !important; z-index: 1 !important; } .ThunderSignInBox--paper { background: rgba(255, 255, 255, 0.92) !important; backdrop-filter: blur(20px) !important; -webkit-backdrop-filter: blur(20px) !important; border-radius: 28px !important; border: 1px solid rgba(0,0,0,0.06) !important; box-shadow: 0 20px 50px rgba(0,0,0,0.06), 0 6px 16px rgba(0,0,0,0.03) !important; max-width: 400px !important; padding: 2.5rem 2.25rem 2rem !important; animation: cardPop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both !important; position: relative !important; z-index: 2 !important; } .ThunderSignInBox--logo { display: none !important; } .ThunderSignInSlogan--root { display: none !important; } .lucide-fingerprint { background: #8B1A2B !important; border-radius: 16px !important; padding: 14px !important; box-shadow: 0 4px 16px rgba(139,26,43,0.2) !important; width: 60px !important; height: 60px !important; color: #FFFFFF !important; stroke: #FFFFFF !important; stroke-width: 2.5 !important; display: block !important; margin: 0 auto !important; } h1, h2, h3, h4, h5, .MuiTypography-h4, .MuiTypography-h5, .MuiTypography-h6 { font-family: Sora, sans-serif !important; font-weight: 600 !important; color: #1C1917 !important; letter-spacing: -0.01em !important; } .rich-text-heading-h1.rich-text-align-center, .rich-text-heading-h2.rich-text-align-center, h1.rich-text-heading-h1, h2.rich-text-heading-h2 { font-family: Space Grotesk, Sora, sans-serif !important; font-size: 1.85rem !important; font-weight: 700 !important; letter-spacing: -0.03em !important; line-height: 1 !important; text-align: center !important; margin: 0 0 0.3rem !important; padding: 0 !important; color: #8B1A2B !important; } hr, .MuiDivider-root { border: none !important; height: 1px !important; background: #E7E5E4 !important; margin: 1.5rem 0 !important; position: relative !important; overflow: visible !important; } hr::before, .MuiDivider-root::before { content: "" !important; position: absolute !important; left: 50% !important; transform: translateX(-50%) !important; top: -1px !important; width: 40px !important; height: 3px !important; border-radius: 2px !important; background: linear-gradient(90deg, #0E6251, #EB7400, #FFBE29, #8B1A2B) !important; border: none !important; } button[type="submit"], .MuiButton-containedPrimary { width: 100% !important; padding: 0.78rem 1.5rem !important; font-size: 0.88rem !important; font-weight: 600 !important; color: #FFFFFF !important; background: #8B1A2B !important; border: none !important; border-radius: 12px !important; text-transform: none !important; box-shadow: none !important; transition: all 0.25s ease !important; margin-bottom: 1rem !important; } button[type="submit"]:hover, .MuiButton-containedPrimary:hover { background: #A42035 !important; box-shadow: 0 6px 20px rgba(139,26,43,0.2) !important; transform: translateY(-1px) !important; } a, .MuiLink-root { color: #8B1A2B !important; text-decoration: none !important; font-weight: 500 !important; } @keyframes cardPop { from { opacity: 0; transform: scale(0.92); } to { opacity: 1; transform: scale(1); } } @media (max-width: 480px) { .ThunderSignInBox--paper { padding: 2rem 1.5rem 1.5rem !important; border-radius: 22px !important; margin: 1rem !important; } body::before { clip-path: polygon(0 0, 100% 0, 100% 35%, 0 45%) !important; } body::after, #root::before { display: none !important; } }'
+      - key: govid_app.yaml
+        mountPath: /opt/thunder/repository/resources/applications
+        value: |
+          id: "d4e5f6a7-b8c9-0123-defa-govid000app1"
+          name: "Gov.ID Portal"
+          description: "Government Identity Portal"
+          url: "http://development-thunder-thunder-idp.openchoreoapis.localhost:19080"
+          is_registration_flow_enabled: false
+          auth_flow_id: "b2c3d4e5-f6a7-8901-bcde-govid00flow1"
+          theme_id: "a1b2c3d4-e5f6-7890-abcd-govid0theme1"
+          layout_id: "c3d4e5f6-a7b8-9012-cdef-govid0layot1"
+          certificate:
+            type: "NONE"
+            value: ""
+          inbound_auth_config:
+            - type: "oauth2"
+              config:
+                client_id: "GOVID_PORTAL"
+                redirect_uris:
+                  - "http://development-thunder-thunder-idp.openchoreoapis.localhost:19080/callback"
+                grant_types:
+                  - "authorization_code"
+                  - "refresh_token"
+                response_types:
+                  - "code"
+                token_endpoint_auth_method: "none"
+                pkce_required: true
+                public_client: true
+                token:
+                  access_token:
+                    validity_period: 3600
+                    user_attributes:
+                      - "given_name"
+                      - "family_name"
+                      - "email"
+                      - "name"
+                  id_token:
+                    validity_period: 3600
+                    user_attributes:
+                      - "given_name"
+                      - "family_name"
+                      - "email"
+                      - "name"
+                scope_claims:
+                  profile:
+                    - "name"
+                    - "given_name"
+                    - "family_name"
+                  email:
+                    - "email"
+                    - "email_verified"
   endpoints:
     api:
       type: HTTP
