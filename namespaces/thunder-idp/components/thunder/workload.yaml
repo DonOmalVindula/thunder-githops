@@ -595,6 +595,7 @@ spec:
       - key: govid_layout.yaml
         mountPath: /opt/thunder/repository/resources/layouts
         value: |
+          id: "c3d4e5f6-a7b8-9012-cdef-govid0layot1"
           handle: "gov-id-layout"
           displayName: "Gov.ID Layout"
           description: "Gov.ID layout with custom CSS for diagonal stripes, frosted glass card, and Sri Lankan flag-inspired styling."
