@@ -12,6 +12,7 @@ resources:
   - thunder-20260430-3.yaml
   - thunder-20260430-4.yaml
   - thunder-20260504-1.yaml
+  - thunder-20260504-2.yaml
   - release-binding.yaml
   - release-binding-staging.yaml
   - release-binding-prod.yaml
