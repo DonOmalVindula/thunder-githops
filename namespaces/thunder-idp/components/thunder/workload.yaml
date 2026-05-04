@@ -8,7 +8,7 @@ spec:
     componentName: thunder
     projectName: identity-platform
   container:
-    image: ghcr.io/asgardeo/thunder:latest
+    image: ghcr.io/asgardeo/thunder:0.32.0
     env:
       - key: SERVER_PORT
         value: "8090"
