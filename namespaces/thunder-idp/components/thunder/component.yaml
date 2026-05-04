@@ -13,7 +13,7 @@ spec:
     kind: ClusterComponentType
     name: deployment/thunder
   parameters:
-    image: "ghcr.io/asgardeo/thunder:latest"
+    image: "ghcr.io/asgardeo/thunder:0.32.0"
     runtime:
       imagePullPolicy: "Always"
       gate:
