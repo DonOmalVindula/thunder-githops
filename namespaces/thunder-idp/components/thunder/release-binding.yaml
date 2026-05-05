@@ -8,7 +8,7 @@ spec:
     componentName: thunder
     projectName: identity-platform
   environment: development
-  releaseName: thunder-20260504-2
+  releaseName: 
   state: Active
   componentTypeEnvironmentConfigs:
     replicas: 1
