@@ -192,16 +192,13 @@ spec:
               database:
                 config:
                   type: "sqlite"
-                  sqlite:
-                    path: "{{.DB_CONFIG_PATH}}"
+                  path: "{{.DB_CONFIG_PATH}}"
                 runtime:
                   type: "sqlite"
-                  sqlite:
-                    path: "{{.DB_RUNTIME_PATH}}"
+                  path: "{{.DB_RUNTIME_PATH}}"
                 user:
                   type: "sqlite"
-                  sqlite:
-                    path: "{{.DB_USER_PATH}}"
+                  path: "{{.DB_USER_PATH}}"
 
               cache:
                 disabled: false
